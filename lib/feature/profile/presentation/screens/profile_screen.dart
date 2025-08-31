@@ -84,7 +84,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 ?.isNotEmpty ??
                                             false))
                                     ? Image.network(
-                                      profileController.image.value ?? 'No Image',
+                                      profileController.image.value,
                                       fit: BoxFit.cover,
                                       width: 70,
                                       height: 70,
@@ -138,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           " ${profileController.name.value ?? 'No'} ${profileController.getProfileResponseModel?.data?.lastName ?? 'Name'}"
                               .text20Grey700(),
-                          "${profileController.nationality.value ?? 'Nation  ality'}"
+                          "${profileController.nationality.value ?? 'Nationality'}"
                               .text16Grey(),
                         ],
                       ),

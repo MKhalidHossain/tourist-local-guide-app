@@ -37,8 +37,8 @@ class Urls {
 
   // ................................Auth...............................with render
 
-    static const String baseUrl = 'http://10.10.5.85:5002/api/v1';
-  //static const String baseUrl = 'https://kobeur.onrender.com/api/v1';
+  // static const String baseUrl = 'http://10.10.5.85:5002/api/v1';
+  static const String baseUrl = 'https://kobeur.onrender.com/api/v1';
 
   // Auth Module
 

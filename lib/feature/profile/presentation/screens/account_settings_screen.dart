@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kobeur/feature/auth/presentation/screens/common/change_password_screen.dart';
 import 'package:kobeur/feature/profile/presentation/screens/common/update_about_me_screen.dart';
-import 'package:kobeur/feature/profile/presentation/screens/profile_screen.dart';
 import '../../../../core/widgets/app_scaffold.dart';
 import 'common/change_password_from_profile_screen.dart';
 import 'common/update_personal_informetion_screen.dart';

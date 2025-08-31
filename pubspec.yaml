@@ -51,6 +51,7 @@ dependencies:
   #   path: packages/country_picker/
   shimmer: ^3.0.0
   dotted_border: ^2.0.0
+  url_launcher: ^6.3.2
 
 
 dev_dependencies:

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kobeur/core/extensions/text_extensions.dart';
-import 'package:kobeur/feature/trip_module/presentation/screens/local/local_booking_details_screen.dart';
 import 'package:kobeur/feature/chat/tourist/message/presentation/screens/chat_screen.dart';
-
 import '../../../../core/common/button/button_widget.dart';
 import '../widgets/bookingtabber_widget.dart';
 import '../widgets/upcoming_cart_widget.dart';

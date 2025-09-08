@@ -50,7 +50,8 @@ class LocalHomeRepository implements LocalHomeRepositoryInterface {
 
   @override
   Future<Response> getBookings(String status) async {
-    return await apiClient.getData(Urls.getBookings + status);
+    return await apiClient.getData(Urls.getBookings+status);
+    print("Status for getBookings from local_home_repository: ${status}");
   }
 
   @override

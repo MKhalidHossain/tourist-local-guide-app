@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:kobeur/feature/home/domain/local/get_home_response_model.dart';
+import 'package:kobeur/feature/home/domain/local/get_trip_response_api_bookings_model.dart';
 import 'package:kobeur/feature/home/domain/local/update_offer_response_model.dart';
 import 'package:kobeur/feature/home/services/local/local_home_service_interface.dart';
 
@@ -20,6 +21,13 @@ class LocalHomeTripController extends GetxController implements GetxService {
   GetHomeResponseModel getHomeResponseModel = GetHomeResponseModel();
   GetTripsDetailsResponseModel getBookingDetailsResponseModel =
       GetTripsDetailsResponseModel();
+
+  // TripBookingResponse getTripResponseApiBookingsModel =
+  //     TripBookingResponse();
+
+  TripBookingResponse upcomingTrips = TripBookingResponse();
+  TripBookingResponse completedTrips = TripBookingResponse();
+  TripBookingResponse cancelledTrips = TripBookingResponse();
 
   bool isLoading = false;
 
@@ -143,4 +151,91 @@ class LocalHomeTripController extends GetxController implements GetxService {
       update();
     }
   }
+
+
+
+   Future<void> getBookings(String status) async {
+    try {
+      isLoading = true;
+   
+      update();
+
+      debugPrint("🔄 Fetching bookings with status: $status");
+
+      final response = await localHomeServiceInterface.getBookings(status);
+
+      debugPrint("📡 Status Code: ${response.statusCode}");
+      debugPrint("📡 Response Body: ${response.body}");
+
+      if (response.statusCode == 200) {
+        final tripResponse = TripBookingResponse.fromJson(response.body);
+        
+        switch (status.toLowerCase()) {
+          case 'upcoming':
+            upcomingTrips = tripResponse;
+            break;
+          case 'completed':
+            completedTrips = tripResponse;
+            break;
+          case 'cancelled':
+            cancelledTrips = tripResponse;
+            break;
+        }
+
+        debugPrint("✅ $status trips fetched successfully: ${tripResponse.data?.length ?? 0} items");
+      } else {
+       
+        debugPrint("❌ Failed to fetch $status trips: ${response.statusCode}");
+      }
+    } catch (e) {
+     
+      debugPrint("⚠️ Error fetching $status trips: $e");
+    } finally {
+      isLoading = false;
+      update();
+    }
+  }
+
+
+    List<TripBooking> getCurrentTabData(int tabIndex) {
+    switch (tabIndex) {
+      case 0:
+        return upcomingTrips.data ?? [];
+      case 1:
+        return completedTrips.data ?? [];
+      case 2:
+        return cancelledTrips.data ?? [];
+      default:
+        return [];
+    }
+  }
+
+  // Future<void> getBookings(String status) async {
+  //   try {
+  //     isLoading = true;
+  //     update();
+
+  //     final response = await localHomeServiceInterface.getBookings(status);
+
+  //     debugPrint("Status Code: ${response.statusCode}");
+  //     debugPrint("Response Body: ${response.body}");
+
+  //     if (response.statusCode == 200) {
+  //       print("✅ getBookings : for local fetched successfully\n");
+  //       getTripResponseApiBookingsModel =
+  //           GetTripResponseApiBookingsModel.fromJson(response.body);
+
+  //       isLoading = false;
+  //       update();
+  //     } else {
+  //       getTripResponseApiBookingsModel =
+  //           GetTripResponseApiBookingsModel.fromJson(response.body);
+  //     }
+  //   } catch (e) {
+  //     print("⚠️ Error fetching profile : getBookings : $e\n");
+  //   } finally {
+  //     isLoading = false;
+  //     update();
+  //   }
+  // }
 }

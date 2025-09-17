@@ -164,9 +164,13 @@ class _CultureOffersScreenState extends State<CultureOffersScreen> {
                             serviceData.selectedOfferType =
                                 selectedCultureNameforStore;
                             serviceData.printData();
-                            Get.to(OfferPricingScreen(
-                              offer: offers.firstWhere((offer) => offer.value == selectedOffer!),
-                            ));
+                            Get.to(
+                              OfferPricingScreen(
+                                offer: offers.firstWhere(
+                                  (offer) => offer.value == selectedOffer!,
+                                ),
+                              ),
+                            );
                           }
                           : null,
                   style: ElevatedButton.styleFrom(

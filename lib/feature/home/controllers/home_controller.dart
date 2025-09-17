@@ -19,6 +19,7 @@ import 'package:kobeur/feature/home/domain/tourist/rate_a_local_response_model.d
 import 'package:kobeur/feature/home/domain/tourist/search_offer_response_model.dart';
 import 'package:kobeur/feature/home/services/home_service_interface.dart';
 
+import '../../../navigation/bottom_navigationber_screen.dart';
 import '../domain/local/get_booking_details_response_model.dart';
 import '../domain/local/get_trip_response_api_bookings_model.dart';
 
@@ -103,6 +104,7 @@ class HomeController extends GetxController implements GetxService {
         );
         isLoading = false;
         update();
+        Get.to(() => BottomNavbar(userRole: 'Local'));
       } else {
         print(
           "❌ Failed to : create Offer : from local: ${response.statusCode}\n",

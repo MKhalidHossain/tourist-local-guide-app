@@ -137,6 +137,8 @@ class AuthController extends GetxController implements GetxService {
     update();
   }
 
+ 
+
   void addImageAndRemoveMultiParseData() {
     multipartList.clear();
     identityImages.clear();

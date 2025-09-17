@@ -20,14 +20,14 @@ class _ExperienceOffersScreenState extends State<ExperienceOffersScreen> {
 
   final List<OfferItem> offers = [
     OfferItem(
-      'Day trip',
+      'Day Trip',
       'Spend a day with the tourist and show them around your area',
 
       'assets/icons/dayTrip.png',
       'day_trip_experience',
     ),
     OfferItem(
-      'Manual activity',
+      'Manual Activity',
       'Teach tourists local skills like pottery, crafts, or traditional techniques.',
       'assets/icons/manualActivity.png',
       'manual_activity_experience',
@@ -45,7 +45,7 @@ class _ExperienceOffersScreenState extends State<ExperienceOffersScreen> {
       'Journey_experience',
     ),
     OfferItem(
-      'Island hopping',
+      'Island Hopping',
       'Offer unforgettable island hopping adventures for tourists',
       'assets/icons/islandHopping.png',
       'island_hopping_experience',
@@ -183,9 +183,13 @@ class _ExperienceOffersScreenState extends State<ExperienceOffersScreen> {
                             serviceData.selectedOfferType =
                                 selectedExperienceOfferNameforStore;
                             serviceData.printData();
-                            Get.to(OfferPricingScreen(
-                              offer: offers.firstWhere((offer) => offer.value == selectedOffer!),
-                            ));
+                            Get.to(
+                              OfferPricingScreen(
+                                offer: offers.firstWhere(
+                                  (offer) => offer.value == selectedOffer!,
+                                ),
+                              ),
+                            );
                           }
                           : null,
                   style: ElevatedButton.styleFrom(

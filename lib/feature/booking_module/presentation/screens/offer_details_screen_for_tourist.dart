@@ -37,13 +37,6 @@ class _OfferDetailsScreenForTouristScreenState
     });
   }
 
-  final List<String> images = [
-    'https://images.unsplash.com/photo-1548013146-72479768bada?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

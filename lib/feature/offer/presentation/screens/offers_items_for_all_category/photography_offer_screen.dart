@@ -20,7 +20,7 @@ class _PhotographyOffersScreenState extends State<PhotographyOffersScreen> {
 
   final List<OfferItem> offers = [
     OfferItem(
-      'Drone rental',
+      'Drone Rental',
       'Rent your drone for one or multiple days',
 
       'assets/icons/droneRental.png',
@@ -165,9 +165,13 @@ class _PhotographyOffersScreenState extends State<PhotographyOffersScreen> {
                             serviceData.selectedOfferType =
                                 selectedPhotographyOfferNameforStore;
                             serviceData.printData();
-                            Get.to(OfferPricingScreen(
-                              offer: offers.firstWhere((offer) => offer.value == selectedOffer!),
-                            ));
+                            Get.to(
+                              OfferPricingScreen(
+                                offer: offers.firstWhere(
+                                  (offer) => offer.value == selectedOffer!,
+                                ),
+                              ),
+                            );
                           }
                           : null,
                   style: ElevatedButton.styleFrom(

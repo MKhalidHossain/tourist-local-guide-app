@@ -218,9 +218,9 @@ class _LocalsProfileForTouristScreenState
                                             localProfileDetails!
                                                 .offers!
                                                 .isNotEmpty
-                                        ? localProfileDetails.offers!.take(2).map((
-                                          offer,
-                                        ) {
+                                        ? localProfileDetails.offers!.
+                                        // take(2).
+                                        map((offer) {
                                           return Padding(
                                             padding: const EdgeInsets.only(
                                               bottom: 12,

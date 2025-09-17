@@ -26,13 +26,13 @@ class _TransportOffersScreenState extends State<TransportOffersScreen> {
       'arrival_departure_transport',
     ),
     OfferItem(
-      'Week tour',
+      'Week Tour',
       'Drive tourists on multi-day tours',
       'assets/icons/weekTour.png',
       'week_tour_transport',
     ),
     OfferItem(
-      'Day tour',
+      'Day Tour',
       'Take tourists on personalized day trips to their preferred spots',
       'assets/icons/dayTour.png',
       'day_tour_transport',
@@ -175,9 +175,13 @@ class _TransportOffersScreenState extends State<TransportOffersScreen> {
                             serviceData.selectedOfferType =
                                 selectedTransportOfferNameforStore;
                             serviceData.printData();
-                            Get.to(OfferPricingScreen(
-                              offer: offers.firstWhere((offer) => offer.value == selectedOffer!),
-                            ));
+                            Get.to(
+                              OfferPricingScreen(
+                                offer: offers.firstWhere(
+                                  (offer) => offer.value == selectedOffer!,
+                                ),
+                              ),
+                            );
                           }
                           : null,
                   style: ElevatedButton.styleFrom(

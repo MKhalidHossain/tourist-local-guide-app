@@ -60,11 +60,22 @@ class _BookingOfferSummaryScreenState extends State<BookingOfferSummaryScreen> {
                 SizedBox(width: 12),
                 CircleAvatar(
                   radius: 26,
-                  backgroundImage: AssetImage('assets/images/local3.png'),
-                  // NetworkImage(
-                  //   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
-                  // ),
+                  backgroundImage:
+                      (widget.local.profileImage != null &&
+                              widget.local.profileImage!.isNotEmpty)
+                          ? NetworkImage(widget.local.profileImage!)
+                          : const AssetImage(
+                                'assets/images/profileBlankImage.png',
+                              )
+                              as ImageProvider,
                 ),
+
+                // CircleAvatar(
+                //   radius: 26,
+                //   backgroundImage:
+                //   // AssetImage('assets/images/local3.png'),
+                //   NetworkImage('${widget.local.profileImage}'),
+                // ),
                 SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

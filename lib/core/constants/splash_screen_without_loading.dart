@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kobeur/core/extensions/text_extensions.dart';
-import 'package:kobeur/main.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/app_scaffold.dart';
 //import '../widgets/app_scaffold.dart';

@@ -1,12 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/constants/urls.dart';
 import '../../../helpers/remote/data/api_client.dart';
-import '../domain/local/create_offer_response_model.dart';
 import 'home_repository_interface.dart';
 
 class HomeRepository implements HomeRepositoryInterface {
@@ -180,6 +176,24 @@ class HomeRepository implements HomeRepositoryInterface {
       "comment": comment,
       "rating": rating,
     });
+  }
+
+  @override
+  Future<Response> sendMessage(String userId, String message) async {
+    return await apiClient.postData(Urls.sendMessage, {
+      "userId": userId,
+      "message": message,
+    });
+  }
+  
+  @override
+  Future<Response> getMessages(String userId) async{
+   return await apiClient.getData(Urls.getMessage + userId);
+  }
+  
+  @override
+  Future<Response> getUserAssociatedWithChat() async{
+    return await apiClient.getData(Urls.getUserAssociatWithChat);
   }
 
   // @override

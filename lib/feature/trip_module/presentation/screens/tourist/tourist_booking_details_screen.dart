@@ -5,7 +5,7 @@ import 'package:kobeur/core/common/button/button_widget.dart';
 import 'package:kobeur/core/widgets/formatTripDateText.dart';
 import '../../../../../core/widgets/app_scaffold.dart';
 import '../../../../../core/extensions/text_extensions.dart';
-import '../../../../chat/tourist/message/presentation/screens/chat_screen.dart';
+import '../../../../chat/presentation/screens/chat_screen.dart';
 import '../../../../home/controllers/home_controller.dart';
 
 class TouristBookingDetailsScreen extends StatefulWidget {

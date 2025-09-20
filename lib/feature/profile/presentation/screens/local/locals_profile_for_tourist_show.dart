@@ -4,6 +4,7 @@ import 'package:kobeur/core/extensions/text_extensions.dart';
 import 'package:kobeur/feature/booking_module/presentation/screens/offer_details_screen_for_tourist.dart';
 import 'package:kobeur/feature/home/controllers/home_controller.dart';
 import 'package:shimmer/shimmer.dart';
+import '../../../../chat/presentation/screens/chat_screen.dart';
 
 // ignore: must_be_immutable
 class LocalsProfileForTouristScreen extends StatefulWidget {
@@ -184,7 +185,7 @@ class _LocalsProfileForTouristScreenState
                                                         .languages![index],
                                                   ),
                                                   if (index !=
-                                                      localProfileDetails!
+                                                      localProfileDetails
                                                               .languages!
                                                               .length -
                                                           1)
@@ -385,7 +386,16 @@ class _LocalsProfileForTouristScreenState
                   width: double.infinity,
                   height: 48,
                   child: OutlinedButton.icon(
-                    onPressed: () => Navigator.pushNamed(context, '/chat'),
+                    onPressed: () {
+                      Get.to(
+                        () => ChatScreen(
+                          userIdForChat: localProfileDetails?.id,
+                          userReceiverNameForChat: localProfileDetails?.name,
+                          userReceiverImageForChat:
+                              localProfileDetails?.profileImage,
+                        ),
+                      );
+                    },
                     icon: Icon(Icons.chat, color: Colors.red),
                     label: Text(
                       'Chat',

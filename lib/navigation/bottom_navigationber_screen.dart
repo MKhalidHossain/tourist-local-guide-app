@@ -4,7 +4,7 @@ import '../core/themes/app_color.dart';
 import '../feature/home/presentation/screens/local/local_home_screen.dart';
 import '../feature/home/presentation/screens/local/local_trip_screen.dart';
 import '../feature/home/presentation/screens/tourist/tourist_home_screen.dart';
-import '../feature/chat/tourist/message/presentation/screens/message_screen.dart';
+import '../feature/chat/presentation/screens/message_screen.dart';
 import '../feature/profile/presentation/screens/profile_screen.dart';
 
 class BottomNavbar extends StatefulWidget {

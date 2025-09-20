@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_colors.dart';
 import 'chat_screen.dart'; // Update to match your structure
 
 class MessageModel {

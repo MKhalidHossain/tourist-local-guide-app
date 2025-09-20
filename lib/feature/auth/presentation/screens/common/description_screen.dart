@@ -85,7 +85,6 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 24),
-
                       Stack(
                         children: [
                           TextFormField(

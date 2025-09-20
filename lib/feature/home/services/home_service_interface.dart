@@ -1,19 +1,16 @@
-import 'dart:io';
-
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:image_picker/image_picker.dart';
 
 abstract class HomeServiceInterface {
-    Future<Response> createOffer({
+  Future<Response> createOffer({
     required String category,
     required String offerType,
     required String pricePerPerson,
     required String maxParticipants,
     required String title,
     required String description,
-    required  List<Map<String, dynamic>> availability,
+    required List<Map<String, dynamic>> availability,
     required List<XFile> photos,
-
   });
   Future<Response> updateOffer({
     required String offerId,
@@ -50,4 +47,7 @@ abstract class HomeServiceInterface {
   Future<Response> getFav();
   Future<Response> rateALocal(String localId, String comment, String rating);
   Future<Response> cancelTrip(String localId);
+  Future<Response> sendMessage(String userId, String message);
+  Future<Response> getMessages(String userId);
+  Future<Response> getUserAssociatedWithChat();
 }

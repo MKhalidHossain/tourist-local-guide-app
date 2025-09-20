@@ -4,7 +4,7 @@ import 'package:kobeur/core/extensions/text_extensions.dart';
 import 'package:kobeur/core/themes/app_color.dart';
 import 'package:kobeur/feature/profile/controllers/profile_controller.dart';
 import '../../../../../core/common/button/button_widget.dart';
-import '../../../../chat/tourist/message/presentation/screens/chat_screen.dart';
+import '../../../../chat/presentation/screens/chat_screen.dart';
 import '../../../../offer/presentation/screens/category_selection_screen.dart';
 import '../../../../trip_module/presentation/screens/local/local_booking_details_screen.dart';
 import '../../../../trip_module/presentation/widgets/upcoming_cart_widget.dart';

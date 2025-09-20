@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:kobeur/core/extensions/text_extensions.dart';
 import 'package:kobeur/feature/offer/domain/model/service_data.dart';
 import 'package:kobeur/feature/offer/presentation/screens/offer_pricing_screen.dart';
-
 import '../../../domain/model/offers_item.dart';
 
 class FoodOffersScreen extends StatefulWidget {
@@ -41,7 +40,7 @@ class _FoodOffersScreenState extends State<FoodOffersScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
 

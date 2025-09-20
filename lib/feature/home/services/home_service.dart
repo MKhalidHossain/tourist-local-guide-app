@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:image_picker/image_picker.dart';
 import '../repositories/home_repository_interface.dart';
@@ -149,5 +147,20 @@ required List<Map<String, dynamic>> availability,
     String rating,
   ) async {
     return await homeRepositoryInterface.rateALocal(localId, comment, rating);
+  }
+  
+  @override
+  Future<Response> sendMessage(String userId, String message) async{
+    return await homeRepositoryInterface.sendMessage(userId, message);
+  }
+  
+  @override
+  Future<Response> getUserAssociatedWithChat() async{
+    return await homeRepositoryInterface.getUserAssociatedWithChat();
+  }
+  
+  @override
+  Future<Response> getMessages(String userId) async{
+    return await homeRepositoryInterface.getMessages(userId);
   }
 }

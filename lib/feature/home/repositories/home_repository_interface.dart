@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -50,4 +48,9 @@ abstract class HomeRepositoryInterface {
   Future<Response> rateALocal(String localId, String comment, String rating);
 
   Future<Response> cancelTrip(String localId);
+
+  Future<Response> sendMessage(String userId, String message);
+  Future<Response> getMessages(String userId);
+  Future<Response> getUserAssociatedWithChat();
+
 }

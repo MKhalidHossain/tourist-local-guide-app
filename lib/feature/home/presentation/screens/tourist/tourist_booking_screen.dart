@@ -48,7 +48,7 @@ class _TouristBookingScreenState extends State<TouristBookingScreen> {
         return localTripController.isLoading
             ? Scaffold(
               appBar: AppBar(
-                title: 'My Trip'.text24Black(),
+                title: 'My Bookings'.text24Black(),
                 centerTitle: false,
                 backgroundColor: Colors.white,
                 elevation: 0,
@@ -58,7 +58,7 @@ class _TouristBookingScreenState extends State<TouristBookingScreen> {
             )
             : Scaffold(
               appBar: AppBar(
-                title: 'My Trip'.text24Black(),
+                title: 'My Bookings'.text24Black(),
                 centerTitle: false,
                 backgroundColor: Colors.white,
                 elevation: 0,

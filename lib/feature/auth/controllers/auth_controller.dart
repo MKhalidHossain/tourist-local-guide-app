@@ -391,7 +391,7 @@ class AuthController extends GetxController implements GetxService {
       debugPrint("Login tokens - Access: $token,\n Refresh: $refreshToken");
 
       await _loadUserRole();
-      debugPrint("✅ Access Token: $token\n");
+      debugPrint("Controller Access Token: $token\n");
       debugPrint("✅ Refresh Token: $refreshToken\n");
       debugPrint("✅ User Role: $userRole\n");
 
@@ -402,8 +402,9 @@ class AuthController extends GetxController implements GetxService {
       // for Nevigation to Tourist or Local
       if (userRole != null && userRole!.isNotEmpty) {
         final role = userRole!;
-        print('User Role after login for store: $role');
+        print('Controller >> User Role after login for store: $role');
         await saveUserRole(role);
+        print(userRole);
         if (userRole.toString().toLowerCase() == 'tourist') {
           debugPrint(
             'User Role: $userRole ================================= from Auth controller after login \n\n\n\n\n\n\n',
@@ -479,6 +480,95 @@ class AuthController extends GetxController implements GetxService {
        Response? response = await authServiceInterface.googleLogin(idToken?? "Token not found");
 
        debugPrint("Status Code: ${response?.statusCode}, Body SHow: ${response?.body}");
+
+
+     if (response == null) {
+       print("No response found");
+     }
+     if (response!.statusCode == 200 || response.statusCode == 201) {
+       debugPrint("Login tokens - Access: ${response.body}");
+       logInResponseModel = LogInResponseModel.fromJson(response.body);
+       debugPrint("Parsed LogInResponseModel: $logInResponseModel");
+       final String refreshToken = logInResponseModel!.data!.refreshToken!;
+       final String token = logInResponseModel!.data!.accessToken!;
+
+       print(
+         'accessToken ${logInResponseModel!.data!.accessToken}} NOW for you Kobeur \n ',
+       );
+       print('refreshToken $refreshToken NOW Kobeur\n');
+       print(
+         'User Token $token  ================================== from comtroller ',
+       );
+       await setUserToken(token, refreshToken);
+       update();
+
+       debugPrint("Login tokens - Access: $token,\n Refresh: $refreshToken");
+
+       await _loadUserRole();
+       debugPrint("✅ Access Token: $token\n");
+       debugPrint("✅ Refresh Token: $refreshToken\n");
+       debugPrint("✅ User Role: $userRole\n");
+
+       debugPrint(
+         'the role of user  $userRole \n\n\n\n\n\n\n\n\n\n\n\nToken $token  ================================== from controller ',
+       );
+
+       // for Nevigation to Tourist or Local
+       if (userRole != null && userRole!.isNotEmpty) {
+         final role = userRole!;
+         print('User Role after login for store: $role');
+         await saveUserRole(role);
+         if (userRole.toString().toLowerCase() == 'tourist') {
+           debugPrint(
+             'User Role: $userRole ================================= from Auth controller after login \n\n\n\n\n\n\n',
+           );
+           Get.offAll(() => BottomNavbar(userRole: userRole));
+         } else if (userRole.toString().toLowerCase() == 'local') {
+           _checkIsFirstOffer().then((_) {
+             print(
+               '\n\nHave Offer from auth Controller for navigation: $haveOffer\n\n',
+             );
+             haveOffer
+                 ? Get.offAll(() => BottomNavbar(userRole: userRole))
+                 : Get.offAll(() => CreateFirstServiceScreen());
+           });
+         } else {
+           debugPrint("User Role is null or empty");
+           Get.offAll(() => TouristORLocalScreen());
+           showCustomSnackBar(
+             'You have not selected your role yet, please select your role',
+             isError: true,
+           );
+         }
+       } else {
+         showCustomSnackBar(
+           'You have not selected your role yet, please select your role',
+           isError: true,
+         );
+         Get.offAll(() => UserLoginScreen());
+       }
+
+       _isLoading = false;
+       update();
+
+       //Get.offAll(() => TouristORLocalScreen());
+
+       //Get.offAll(BottomNavbar());
+
+       showCustomSnackBar('Welcome, you have successfully Logged In');
+       _isLoading = false;
+     } else if (response.statusCode == 202) {
+       if (response.body['data']['is_phone_verified'] == 0) {}
+     } else if (response.statusCode == 401) {
+       Get.offAll(UserSignupScreen());
+       showCustomSnackBar(
+         "Sorry you don't have no account, please create a account",
+       );
+     } else {
+       _isLoading = false;
+       ApiChecker.checkApi(response);
+     }
+
 
       // return _apiClient.post<AuthResponseEntity>(
       //   ApiConstants.auth.google,

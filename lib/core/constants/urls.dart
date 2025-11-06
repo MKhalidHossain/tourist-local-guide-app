@@ -2,9 +2,10 @@ class Urls {
   // ................................Auth...............................with local or server
 
   // static const String baseUrl = 'http://10.0.2.2:5001/api/v1';// for no sure android device in same wifi
-  static const String baseUrl = 'http://10.10.5.85:5001/api/v1';  // for android simulator or real device
+  // static const String baseUrl = 'http://10.10.5.85:5001/api/v1';  // for android simulator or real device
   // static const String baseUrl = 'https://kobeur.onrender.com/api/v1';
-   // static const String baseUrl = 'https://api.hatchr.app/api/v1';
+   static const String baseUrl = 'https://api.hatchr.app/api/v1';
+
   // static const String baseUrl ='http://localhost:5001/api/v1';
   // 'https://subpeduncular-jed-increasingly.ngrok-free.dev/api/v1';
 
